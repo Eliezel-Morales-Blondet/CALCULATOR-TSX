@@ -10,8 +10,9 @@ function App() {
 
   const handleClick = (value:string) => {
     
-    if (expression === "Error"){
+    if (expression === "Error" ||  expression === "function Error() { [native code] }"){
       clear();
+      setExpression((prev) => prev + value);
     }else if (numbers < 15){
       setNumbers(numbers + 1);
       setExpression((prev) => prev + value);
@@ -20,8 +21,6 @@ function App() {
       setExpression((prev) => prev + value);
     }
   };
-
-
 
 const textareaRef = useRef<HTMLTextAreaElement>(null);
 
@@ -53,6 +52,23 @@ useEffect(() => {
     }
   }
 
+  const classButton = (value:string) =>{
+    switch (value) {
+      case '=':
+        return 'doble';
+      case '+':
+        return 'operator';
+      case '/':
+        return 'operator';
+      case '*':
+        return 'operator';
+      case '-':
+        return 'operator';
+      default:
+        return 'number';
+    }
+  }
+
   const buttons = [
     '/',
     '7','8','9','*',
@@ -66,9 +82,9 @@ useEffect(() => {
         <textarea rows={2} value={expression}  readOnly ref={textareaRef}></textarea>
         <div className='buttons'>
           <button className='clear' onClick={clear}>C</button>
-          <button className='clear-1' onClick={clear_entry}>CE</button>
+          <button className='clear_entry' onClick={clear_entry}>CE</button>
           {buttons.map((btn) => (
-            <button key={btn} onClick={() => (btn === '=' ? calculate() : handleClick(btn))} className={btn === '=' ? "doble" : " "}>{btn}</button>
+            <button key={btn} onClick={() => (btn === '=' ? calculate() : handleClick(btn))} className={classButton(btn)}>{btn}</button>
           ))}
         </div>
       </div>

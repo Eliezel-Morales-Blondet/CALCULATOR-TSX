@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
-
+@font-face {
+    font-family: "Digital-7";
+    src: url("./assets/font/Digital-7.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
 *{
   padding: 0;
   margin: 0;
@@ -21,8 +26,12 @@
   display: flex;
   flex-direction: column;
   width: 300px;
-  background: linear-gradient(180deg, #f2f2f2 0%,#d9d9d9 20%, #b3b3b3 50%, #8c8c8c 80%, #666666 100%);
+  background: linear-gradient(180deg, #f2f2f2 0%,#d9d9d9 20%, #b3b3b3 50%, #8c8c8c 80%, #555 100%);
   border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15),
+    0 12px 24px rgba(0, 0, 0, 0.18),
+    0 24px 48px rgba(0, 0, 0, 0.12);
+
 }
 
 .buttons{
@@ -34,53 +43,78 @@
 
 button{
   font-family: 'Share Tech Mono', monospace;
+  font-size: 20px;
   padding: 15px;
   border: none;
   border-radius: 5px;
+  box-shadow: 0 30px 400px rgba(0, 0, 0, 0.15);
 }
+
 
 .clear{
   grid-column: span 2;
   color: brown;
-  background-color: #1565C0;
+}
+.clear,
+.clear_entry,
+.doble{
+  background-color: #003366;
+}
+
+.clear:active,
+.clear_entry:active,
+.doble:active{
+  background-color: #4682B4;
 }
 
 .doble{
   grid-column: span 2;
   color: white;
-  background-color: #1565C0;
 }
 
 textarea{
   width: 87%;
   padding: 20px;
   margin-bottom: 5px;
-  background-color: #444444;
+  background-color: #121212;
+  color: whitesmoke;
   border: none;
   border-radius: 5px;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 20px;
+  font-family: "Digital-7", monospace;
+  font-size: 40px;
   letter-spacing: 2px;
   text-align: right;
   resize: none;
 }
 
 textarea::-webkit-scrollbar {
-    width: 8px;
-    border-radius: 20px;
-
+  width: 8px;
+  border-radius: 20px;
 }
 
 textarea::-webkit-scrollbar-track {
-    background: #444;
-    border-radius: 20px;
+  background: #444;
+  border-radius: 20px;
 }
 
 textarea::-webkit-scrollbar-thumb {
-    background: #777;
-    border-radius: 20px;
+  background: #777;
+  border-radius: 20px;
 }
 
 textarea::-webkit-scrollbar-thumb:hover {
-    background: #999;
+  background: #999;
+}
+
+.number{
+  font-family: 'Orbitron', sans-serif;
+  background-color: #ddd;
+}
+.number:active{
+  background-color: white;
+}
+
+.operator{
+  color: whitesmoke;
+  background-color: #1565C0;  
 }
